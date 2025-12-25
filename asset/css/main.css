@@ -1,0 +1,676 @@
+
+/* animation */
+@keyframes Fade{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes SlidingWindow{
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    5%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    30%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    65%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes rotateCircle {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* class cho hiệu ứng */
+.load {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    border: 6px solid #fff;  
+    border-top-color: #000;
+    border-right-color: #000;
+    animation: rotateCircle .8s ease infinite forwards;    
+}
+
+/* start css */
+html, body {
+    margin: 0;
+    padding: 0;      
+    width: 100%;
+    min-height: 100%;
+    background-color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+#main {
+    width: 100vw;    /* full chiều ngang viewport */
+    height: 100vh;   /* full chiều cao viewport */
+}
+
+h1,
+h2,
+p {
+    caret-color: transparent; /* Ẩn dấu nháy */
+}
+
+a:link,
+a:visited{
+    color: blue;
+}
+
+.ti-location-pin::before{
+    color: #EA4335;
+}
+
+.ti-mobile:before {
+    color: blue;
+}
+
+.ti-money:before{
+    font-weight: bold;
+}
+
+
+/* menu */
+#menu{
+    width: 100%;
+    height: 46px;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    display: flex;
+    position: fixed;
+    -webkit-user-select: none; /* cho Safari, iOS */
+    -ms-user-select: none;     /* cho IE11 */
+    user-select: none;
+}
+
+.menu__homeIcon{
+    width: 50px;
+    height: 46px;
+    padding: 14px 0;
+    margin: 0 12px;
+    color: #eeeeee;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menu__homeIcon::before{
+    font-family: 'themify';
+    content: '\e69b';   
+    font-style: normal;
+}
+
+.menu__options{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__options > * {
+    min-width: 90px;
+    min-height: 46px;
+    padding: 0 12px;
+    z-index: 1 ;
+    color: #eeeeee;
+    background-color: #333333;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu__options > *:not(:first-child){
+    display: none;  
+}
+
+/* khi thao tác với menu */
+.menu__homeIcon:hover,
+.menu__options:hover{
+    cursor: pointer;
+}
+
+.menu__options:hover > *:not(:first-child){
+    display: flex;
+}
+
+.menu__options > *:hover {
+    opacity: 0.7;
+    transition: opacity ease .5s;
+}
+
+/* content */
+.content{
+    position: relative;
+    min-height: 100vh;
+    padding-top: 46px;
+}
+
+.content h1 {
+    width: 100vw;
+    height: 15%;
+    font-size: xxx-large;
+    color: #fff;
+    text-align: center;
+    margin: 30px 0 50px;
+}
+
+/* interface Home */
+
+    /* phần slider */
+.slider{
+    margin: 0px 0 16px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 94vh;
+    display: flex;
+}
+
+.slider > h2{
+    -webkit-user-select: none; /* cho Safari, iOS */
+    -ms-user-select: none;     /* cho IE11 */
+    user-select: none;
+    pointer-events: none;
+    color:aqua;
+    width: 100%;
+    height: 46px;
+    padding-top: 15px;
+    z-index: 1;
+    font-style: italic;
+    text-shadow: 4px 4px 0 #555;
+    position: absolute;
+    text-align: center;
+}
+
+.slider__background{
+    width: 100%;
+    height: 100%;
+    background: url(../img/interface_HomePage/DL_fog.jpg) center/ contain no-repeat;
+    animation: SlidingWindow 8s ease-out infinite forwards ;
+    /* background: c i p s r o c a; */
+}
+
+    /* phần cityInformation */
+.cityInformation{
+    width: 100vw;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.cityInformation h2{
+    color: #1976d2;
+    text-align: center;
+}
+
+.cityInformation p{ 
+    color: #9594A0;
+    margin: 0 40px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.cityInformation p::before{
+    margin-right: 5px;
+    font-family: 'themify';
+    content: '\e628';
+    color: #ffe375;
+    font-size: small;
+}
+
+.cityInformation > *{
+    border-radius: 5%;
+    background: linear-gradient(180deg, #1a1336 0%, #0c0c0c 100%);
+    width: 40%;
+    height: 92vh;
+}
+
+.cityInformation__item{
+    height: auto;
+    margin: 10px;
+    padding: 16px 0 110px;
+    box-sizing: border-box;
+}
+
+/* interface_Accommodation*/
+.content__homestay,
+.content__hotel{
+    display: flex;
+    flex-direction: column;
+}
+
+.accomItem{
+    background-color: #fff;
+    margin: 20px 20px;
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.accomItem h2{
+    text-align: center;
+    color: #08A045;
+}
+
+.accomItem__img{
+    width: 25%;
+    margin: 20px;
+    background-size: cover;
+}
+
+.accomItem__img > img{
+    width: 100%;
+    height: 100%;
+    max-height: 45vh;
+    border-radius: 5px;
+}
+
+.accomItem__description{
+    width: 35%;
+}
+
+.accomItem__description > p::before {
+    font-family: 'themify';
+    content: "\e71b";
+}
+
+.accomItem__connection{
+    padding-left: 16px;
+    padding-top: 25px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.accomItem__connection .ti-facebook{
+    margin: 20px;
+}
+
+
+.addIcon::before{
+    font-family: 'themify';
+    content: '\e61a';
+    text-align: center;
+    font-style: normal;
+}
+
+.addIcon{
+    align-self: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #cdcdcd;
+}   
+
+/* vehicle */
+.content__car,
+.content__motorcycle{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vehicleItem{
+    width: 45vw;
+    height: 50vh;
+    background-color: #fff;
+    margin: 20px 20px;
+    display: flex;
+}
+
+.vehicleItem h2{
+    text-align: center;
+    color: #08A045;
+    height: 10%;
+}
+
+.vehicleItem__header{
+    padding: 10px 20px 16px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicleItem__header > img{
+    height: 50%;
+    width: 90%;
+    padding: 16px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.vehicleItem__body{
+    width: 40%;
+    height: 100%;
+    padding: 10% 16px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicleItem__body > p::before{
+    font-family: 'themify';
+    content: "\e71b";
+}
+
+.vehicleItem__body > p {
+    margin: 10px 0;
+}
+
+.vehicleItem__addIcon{
+    align-self: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #cdcdcd;
+}   
+
+/* Food and tourist acttraction -> entertainItem*/
+/* Cuisine + activities*/
+
+.content__activities,
+.content__food{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.content__food .entertainItem__recommend > span::before{
+    font-family: 'themify'; 
+    content: '\e693';
+    color: #FF0000;
+}
+
+    /* EntertainItem + ExperientialActItem */
+
+.experientialActItem,
+.entertainItem{
+    width: 95vw;
+    height: auto;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    align-self: center;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.experientialActItem__name,
+.entertainItem__name{
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    color: #007BFF;
+}
+
+.entertainItem__pictures{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.entertainItem__pictures > img{
+    width: 40%;
+    max-height: 160px;  
+    object-fit: contain;
+    margin: 10px;
+}
+
+.entertainItem__description{
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.experientialActItem__description > p,
+.entertainItem__description > p {
+    text-align: justify;
+    text-indent: 16px;
+    line-height: 1.6;
+}
+
+.experientialActItem__description > p::before,
+.entertainItem__description > p::before{
+    font-family: 'themify';
+    content: '\e628';
+    color: red;
+}
+
+.entertainItem__recommend{
+    padding-right: 30px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.experientialActItem__recommend > span,
+.entertainItem__recommend > span{
+    line-height: 1.6;
+    text-indent: 16px;
+    text-align: justify;
+}
+.experientialActItem__recommend .ti-arrow-right::before,
+.entertainItem__recommend .ti-arrow-right::before{
+    color: red;
+}
+
+    /* experientialActItem */
+
+.experientialActItem__pictures{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.experientialActItem__pictures > img{ 
+    width: 350px;
+}
+    
+.experientialActItem__description{
+    padding-top: 20px;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.experientialActItem__description > p{
+    padding: 20px;
+}
+
+.experientialActItem__recommend{
+    padding: 50px 30px 0px 0px; /*đi theo kim đồng hồ  */
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.experientialActItem__recommend > h2{
+    color: #E65100;
+    text-align: center;
+}
+
+.experientialActItem table{
+    width: 100%;
+}
+
+.experientialActItem thead{
+    height: 40px;
+}
+
+.experientialActItem th,
+.experientialActItem tr,
+.experientialActItem td{
+    border-style: groove;
+    border-radius: 10px;    
+    border-color: #E0F7EC;
+    background-color: #08A045;
+}
+
+.experientialActItem td:last-child,
+.experientialActItem td:first-child{
+    width: 25%;
+    text-align: center;
+}
+
+.experientialActItem table p {
+    margin: 8px 0;
+}
+
+.experientialActItem table img {
+    width: 250px;
+    height: auto;
+    padding: 10px 0;
+}
+
+/* plan */
+
+.content__Plan{
+    width: 100vw;
+    height: auto;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.content__Plan--type1{
+    background-image: url(../img/background/DaLat_landscape_2.jpg);
+}
+
+.content__Plan--type2{
+    background-image: url(../img/background/DaLat_landscape_3.jpg);
+}
+
+.content__Plan > h2{
+    width: 100vw;
+    color: #f53636;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.exPlan{ 
+    padding: 20px;  
+    box-sizing: border-box;
+    display: flex; 
+    justify-content: center;
+}
+
+.exPlan__table{
+    width: 700px;
+    font-family: cursive;
+    border: 2px solid #ccc;
+    font-size: 13px;
+    text-align: center;
+}
+
+.exPlan__table .table_day{
+    padding: 16px 0;
+    background-color: #9AFE2E;
+}
+
+.exPlan__table th,
+.exPlan__table td {
+    padding: 10px 0;
+}
+
+.exPlan__table p{
+    margin: 0;
+}
+
+.exPlan__table thead{
+    background-color: #9AFE2E;
+}
+
+.exPlan__table tbody{
+    background-color: #fff;
+}
+
+/* contact */
+#contact{
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    padding: 20px 0;
+    caret-color: transparent;
+} 
+
+#contact > h1{
+    color: #fff;
+}
+
+.contact__icons{
+    display: flex;
+    justify-content: center;
+}
+
+.contact__icons > * {
+    width: 23px;
+    height: 23px;
+    font-size: larger;
+    margin: 0 16px;
+}
+
+#contact .ti-facebook{
+    background-color: #0866FF;
+    color: #fff;
+    border-radius: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.ti-instagram{
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); 
+    border-radius: 25%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ti-twitter-alt{
+    background-color: #1DA1F3;
+    color: #fff;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.datas{
+    display: none;
+}
+
